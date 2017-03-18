@@ -1,0 +1,1573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>owoncontrol</class>
+ <widget class="QMainWindow" name="owoncontrol">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1213</width>
+    <height>678</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Owoncontrol-qt</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>840</x>
+      <y>550</y>
+      <width>361</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="connectButton">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>500</y>
+      <width>92</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Connect</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="disconnectButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>1050</x>
+      <y>500</y>
+      <width>92</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Disconnect</string>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>0</y>
+      <width>814</width>
+      <height>610</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="backgroundBrush">
+     <brush brushstyle="NoBrush">
+      <color alpha="255">
+       <red>0</red>
+       <green>0</green>
+       <blue>0</blue>
+      </color>
+     </brush>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>0</y>
+      <width>341</width>
+      <height>431</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>Channel</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>151</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="title">
+       <string>CH1</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+      <widget class="QCheckBox" name="ch1_enable_check">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>30</y>
+         <width>71</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Enable</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="ch1_coupling_combo">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>90</y>
+         <width>111</width>
+         <height>36</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>DC</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>AC</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GND</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>70</y>
+         <width>63</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Coupling</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>140</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Probe Scale</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="ch1_probe_combo">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>160</y>
+         <width>111</width>
+         <height>36</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>x1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>x10</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>x100</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>x1000</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>210</y>
+         <width>71</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Volt Scale</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="ch1_scale_combo">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>230</y>
+         <width>111</width>
+         <height>36</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>8</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>2mV</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>5mV</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>10mV</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>20mV</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>50mV</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>100mV</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>200mV</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>500mv</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1v</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2v</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>5v</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>10v</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QSpinBox" name="ch1_position_spin">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>300</y>
+         <width>131</width>
+         <height>36</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>-100</number>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>280</y>
+         <width>51</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Position</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>170</x>
+        <y>20</y>
+        <width>151</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>CH2</string>
+      </property>
+      <widget class="QCheckBox" name="ch2_enable_check">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>30</y>
+         <width>71</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Enable</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>70</y>
+         <width>63</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Coupling</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>210</y>
+         <width>71</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Volt Scale</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="ch2_probe_combo">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>160</y>
+         <width>111</width>
+         <height>36</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>1</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>x1</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>x10</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>x100</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>x1000</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QComboBox" name="ch2_coupling_combo">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>90</y>
+         <width>111</width>
+         <height>36</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>0</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>DC</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>AC</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>GND</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>140</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Probe Scale</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="ch2_scale_combo">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>230</y>
+         <width>111</width>
+         <height>36</height>
+        </rect>
+       </property>
+       <property name="currentIndex">
+        <number>8</number>
+       </property>
+       <item>
+        <property name="text">
+         <string>2mV</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>5mV</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>10mV</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>20mV</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>50mV</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>100mV</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>200mV</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>500mv</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>1v</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2v</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>5v</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>10v</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QSpinBox" name="ch2_position_spin">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>300</y>
+         <width>131</width>
+         <height>36</height>
+        </rect>
+       </property>
+       <property name="minimum">
+        <number>-100</number>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>50</x>
+         <y>280</y>
+         <width>51</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Position</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Timebase</string>
+     </attribute>
+     <widget class="QLabel" name="label_10">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>20</y>
+        <width>63</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Timebase</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="timebase_combo">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>40</y>
+        <width>103</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>17</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>2nS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>5nS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>10nS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>20nS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>50nS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>100nS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>200ns</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>500nS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>1uS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>2uS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>5uS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>10uS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>20uS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>50uS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>100uS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>200uS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>500uS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>1mS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>2mS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>5mS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>10mS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>20mS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>50mS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>100mS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>200mS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>500mS</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>1S</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>2S</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>5S</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>10S</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>20S</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>50S</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>100S</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QSpinBox" name="hor_trig_spin">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>120</y>
+        <width>141</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="minimum">
+       <number>-10000</number>
+      </property>
+      <property name="maximum">
+       <number>10000</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>100</y>
+        <width>181</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Horizontal Trigger Position</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Trigger</string>
+     </attribute>
+     <widget class="QRadioButton" name="trigger_single_radio">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>20</y>
+        <width>71</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Single</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="trigger_alternate_radio">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>20</y>
+        <width>91</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Alternate</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup</string>
+      </attribute>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>63</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Type:</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="trigger_ch1_radio">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>40</y>
+        <width>71</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CH1</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_2</string>
+      </attribute>
+     </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>40</y>
+        <width>63</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Channel:</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="trigger_ch2_radio">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>40</y>
+        <width>91</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CH2</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_2</string>
+      </attribute>
+     </widget>
+     <widget class="QRadioButton" name="trigger_edge_radio">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>60</y>
+        <width>71</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Edge</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_3</string>
+      </attribute>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>60</y>
+        <width>63</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Mode:</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="trigger_video_radio">
+      <property name="geometry">
+       <rect>
+        <x>200</x>
+        <y>60</y>
+        <width>91</width>
+        <height>24</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Video</string>
+      </property>
+      <attribute name="buttonGroup">
+       <string notr="true">buttonGroup_3</string>
+      </attribute>
+     </widget>
+     <widget class="QTabWidget" name="tabWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>90</y>
+        <width>291</width>
+        <height>231</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tabWidget_3Page1">
+       <attribute name="title">
+        <string>Edge Options</string>
+       </attribute>
+       <widget class="QComboBox" name="trigger_edge_combo">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>10</y>
+          <width>103</width>
+          <height>36</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Rising</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Falling</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="trigger_edge_coupling_combo">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>50</y>
+          <width>103</width>
+          <height>36</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>DC</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>AC</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>HF</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>LF</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="trigger_edge_trigmode_combo">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>90</y>
+          <width>103</width>
+          <height>36</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>Auto</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Normal</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Once</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_15">
+        <property name="geometry">
+         <rect>
+          <x>80</x>
+          <y>20</y>
+          <width>41</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Edge:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_16">
+        <property name="geometry">
+         <rect>
+          <x>60</x>
+          <y>60</y>
+          <width>63</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Coupling:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_17">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>100</y>
+          <width>91</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Trigger Mode:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="trigger_edge_trigvoltage_spin">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>130</y>
+          <width>131</width>
+          <height>36</height>
+         </rect>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::WheelFocus</enum>
+        </property>
+        <property name="minimum">
+         <number>-10000</number>
+        </property>
+        <property name="maximum">
+         <number>10000</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_18">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>140</y>
+          <width>111</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Trigger Voltage:</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_5">
+       <attribute name="title">
+        <string>Video Options</string>
+       </attribute>
+       <widget class="QComboBox" name="trigger_video_mod_combo">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>20</y>
+          <width>103</width>
+          <height>36</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>NTSC</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>PAL</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>SECAM</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QComboBox" name="trigger_video_sync_combo">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>60</y>
+          <width>103</width>
+          <height>36</height>
+         </rect>
+        </property>
+        <property name="currentIndex">
+         <number>0</number>
+        </property>
+        <item>
+         <property name="text">
+          <string>LINE</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>FIELD</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>ODD</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>EVEN</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>LINENO</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QLabel" name="label_22">
+        <property name="geometry">
+         <rect>
+          <x>30</x>
+          <y>30</y>
+          <width>81</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Modulation:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_23">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>70</y>
+          <width>41</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Sync:</string>
+        </property>
+       </widget>
+       <widget class="QSpinBox" name="trigger_video_line_spin">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>100</y>
+          <width>131</width>
+          <height>36</height>
+         </rect>
+        </property>
+        <property name="minimum">
+         <number>1</number>
+        </property>
+        <property name="maximum">
+         <number>525</number>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_24">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>110</y>
+          <width>31</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Line:</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>330</y>
+        <width>101</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Force Trigger</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>330</y>
+        <width>71</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Set 50%</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="geometry">
+       <rect>
+        <x>230</x>
+        <y>330</y>
+        <width>71</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Set 0%</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>Sample</string>
+     </attribute>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>30</y>
+        <width>41</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Mode:</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="sample_mode_combo">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>20</y>
+        <width>103</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>Sample</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Peak</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="label_20">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>80</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Number Samples:</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="samples_combo">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>70</y>
+        <width>103</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <item>
+       <property name="text">
+        <string>4</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>16</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>64</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>128</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>130</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Deep Memory:</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="deep_mem_combo">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>120</y>
+        <width>103</width>
+        <height>36</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <item>
+       <property name="text">
+        <string>1K</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>10K</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>100K</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>1M</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>10M</string>
+       </property>
+      </item>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="forceupdate_btn">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>990</x>
+      <y>440</y>
+      <width>191</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Force Update</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="capture_btn">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>870</x>
+      <y>440</y>
+      <width>111</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Capture Screen</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="info_label">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>270</y>
+      <width>431</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Press &amp;quot;Connect&amp;quot; to begin. Oscilloscope will update on change.&lt;/p&gt;&lt;p&gt;Note: This window will only update on press of &amp;quot;Capture Screen&amp;quot;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1213</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuClose">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionClose"/>
+   </widget>
+   <widget class="QMenu" name="menuConnection">
+    <property name="title">
+     <string>Connection</string>
+    </property>
+    <addaction name="actionConnect"/>
+    <addaction name="actionDisconnect"/>
+   </widget>
+   <widget class="QMenu" name="menuAdditional">
+    <property name="title">
+     <string>Additional</string>
+    </property>
+    <addaction name="actionAutoset"/>
+    <addaction name="actionSelf_Cal"/>
+    <addaction name="actionScreenshot"/>
+    <addaction name="separator"/>
+    <addaction name="actionFactory_Reset"/>
+   </widget>
+   <addaction name="menuClose"/>
+   <addaction name="menuConnection"/>
+   <addaction name="menuAdditional"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionClose">
+   <property name="text">
+    <string>Close</string>
+   </property>
+  </action>
+  <action name="actionConnect">
+   <property name="text">
+    <string>Connect</string>
+   </property>
+  </action>
+  <action name="actionDisconnect">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Disconnect</string>
+   </property>
+  </action>
+  <action name="actionAutoset">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Autoset</string>
+   </property>
+  </action>
+  <action name="actionSelf_Cal">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Self Cal</string>
+   </property>
+  </action>
+  <action name="actionFactory_Reset">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Factory Reset</string>
+   </property>
+  </action>
+  <action name="actionScreenshot">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Screenshot</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+ <buttongroups>
+  <buttongroup name="buttonGroup_2"/>
+  <buttongroup name="buttonGroup_3"/>
+  <buttongroup name="buttonGroup"/>
+ </buttongroups>
+</ui>
