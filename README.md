@@ -1,6 +1,8 @@
 # owoncontrol-qt
 Owon oscilloscope USB interface in QT
 
+![Screenshot](owoncontrol-qt.png)
+
 This is the next step from my "owoncontrol" project and provides a simple
 user interface for the end user to allow control of an SDS7102v oscilloscope
 via USB.

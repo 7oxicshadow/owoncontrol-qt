@@ -377,7 +377,7 @@ void owoncontrol::on_ch1_position_spin_editingFinished()
 
 void owoncontrol::on_ch2_position_spin_editingFinished()
 {
-    current_ch1_vars.tracepos = ui->ch2_position_spin->value();
+    current_ch2_vars.tracepos = ui->ch2_position_spin->value();
     set_tracepos(CHANNEL_2);
 }
 
