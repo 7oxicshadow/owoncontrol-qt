@@ -100,6 +100,8 @@ private slots:
 
     void on_forceupdate_btn_clicked();
 
+    void on_actionConnection_Settings_triggered();
+
 private:
     Ui::owoncontrol *ui;
 };

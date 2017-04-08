@@ -34,6 +34,38 @@ Additional
 The application will need to be run as root otherwise it will be unable to
 access the oscilloscope via usb.
 
+LAN Settings
+------------
+
+The SDS7102v has LAN support.......(Very poor lan support).
+
+The lan side of the oscilloscope has no method of announcing itself to a
+router. It has a fixed IP address and a random MAC address that can be 
+adjusted in the scope settings.
+
+My router rejected the default MAC address in the scope so I had to find
+a valid MAC address of one of the devices on my network and increment the
+last hex value to get it to accept.
+
+I then had to go one step further and use ARP within my router to assign a
+permanent IP to the newly created MAC.
+
+After all of this I could ping the scope BUT 50% of the transmitted packets
+were lost. I suspect this might be related to duplex mismatch...
+
+I gave up at this point and switched to using a crossover cable with fixed
+IP addresses. This works very well and results in no packet loss and
+a good solid connection.
+
+Fixed IP address (PC) : 192.168.1.71
+Fixed Subnet (PC) : 255.255.255.0
+Fixed Gateway (PC) : 192.168.1.1
+
+Scope IP : 192.168.1.72
+Scope Subnet : 255.255.255.0
+Scope Gateway : 192.168.1.1
+Scope MAC : See Description Above
+
 Disclaimer
 ----------
 Use this software at your own risk. Whilst it should not be possible to 

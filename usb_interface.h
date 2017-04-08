@@ -28,6 +28,7 @@ typedef struct
     unsigned int flag; // 0 for waveform, 1 for bitmap, 128 if multipart
 }owon_start_response_st;
 
+extern char start_bmp[STARTBMP_SIZE];
 extern char autoset_data[AUTOSET_DATA_SIZE];
 extern char self_cal_data[SELF_CAL_DATA_SIZE];
 extern char factory_reset_data[FACTORY_RESET_DATA_SIZE];
@@ -52,7 +53,7 @@ extern char * bmp_buffer;
 
 int connect_usb(void);
 int disconnect_usb(void);
-void send_usb_data(char* data, int length);
-int get_bmp(void);
+int send_usb_data(char* data, int length);
+int get_bmp_usb(void);
 
 #endif

@@ -3,7 +3,9 @@
 #include "usb_interface.h"
 #include "owon_commands.h"
 #include "owoncontrol.h"
+#include "consetting.h"
 #include "main.h"
+#include "connection.h"
 
 channel_st current_ch1_vars;
 channel_st current_ch2_vars;
@@ -35,7 +37,7 @@ void set_coupling(channel_e chan)
         {
             coupling_data[9] = chan;
             coupling_data[11] = value;
-            send_usb_data(coupling_data, sizeof(coupling_data));
+            scope_send_message(coupling_data, sizeof(coupling_data));
         }
         else
             window_ptr->append_log("Value out of range!");
@@ -67,7 +69,7 @@ void set_probescale(channel_e chan)
         {
             probe_scale_data[9] = chan;
             probe_scale_data[11] = value;
-            send_usb_data(probe_scale_data, sizeof(probe_scale_data));
+            scope_send_message(probe_scale_data, sizeof(probe_scale_data));
         }
         else
         {
@@ -101,7 +103,7 @@ void set_voltscale(channel_e chan)
         {
             volt_range_data[9] = chan;
             volt_range_data[11] = value;
-            send_usb_data(volt_range_data, sizeof(volt_range_data));
+            scope_send_message(volt_range_data, sizeof(volt_range_data));
         }
         else
         {
@@ -138,7 +140,7 @@ void set_tracepos(channel_e chan)
             tracepos_data[12] = (char) ((value >> 16) & 0x000000FF);
             tracepos_data[13] = (char) ((value >> 8) & 0x000000FF);
             tracepos_data[14] = (char) ((value) & 0x000000FF);
-            send_usb_data(tracepos_data, sizeof(tracepos_data));
+            scope_send_message(tracepos_data, sizeof(tracepos_data));
         }
         else
         {
@@ -161,7 +163,7 @@ void set_memrange(void)
     {
         memory_range_data[9] = value;
         window_ptr->append_log("Updating Memory Depth");
-        send_usb_data(memory_range_data, sizeof(memory_range_data));
+        scope_send_message(memory_range_data, sizeof(memory_range_data));
     }
     else
     {
@@ -179,7 +181,7 @@ void set_timebase(void)
     {
         timebase_data[10] = value;
         window_ptr->append_log("Updating Timebase");
-        send_usb_data(timebase_data, sizeof(timebase_data));
+        scope_send_message(timebase_data, sizeof(timebase_data));
     }
     else
     {
@@ -190,19 +192,19 @@ void set_timebase(void)
 void force_trigger(void)
 {
     window_ptr->append_log("Send Force Trigger Command");
-    send_usb_data(force_trig_data, sizeof(force_trig_data));
+    scope_send_message(force_trig_data, sizeof(force_trig_data));
 }
 
 void set_50pct_trigger(void)
 {
     window_ptr->append_log("Send 50pct Trigger Command");
-    send_usb_data(set_50pct_trig_data, sizeof(set_50pct_trig_data));
+    scope_send_message(set_50pct_trig_data, sizeof(set_50pct_trig_data));
 }
 
 void set_0_trigger(void)
 {
     window_ptr->append_log("Send 0 Trigger Command");
-    send_usb_data(set_0_trig_data, sizeof(set_0_trig_data));
+    scope_send_message(set_0_trig_data, sizeof(set_0_trig_data));
 }
 
 void set_horiz_trigger_pos(void)
@@ -219,7 +221,7 @@ void set_horiz_trigger_pos(void)
         hor_trigger_data[13] = (char) (value & 0x000000FF);
 
         window_ptr->append_log("Send Horiz Pos Command");
-        send_usb_data(hor_trigger_data, sizeof(hor_trigger_data));
+        scope_send_message(hor_trigger_data, sizeof(hor_trigger_data));
     }
     else
     {
@@ -236,7 +238,7 @@ void set_acqu_mode(void)
         acqu_mode_data[9] = mode;
 
         window_ptr->append_log("Send Acquisition Mode Command");
-        send_usb_data(acqu_mode_data, sizeof(acqu_mode_data));
+        scope_send_message(acqu_mode_data, sizeof(acqu_mode_data));
     }
 }
 
@@ -249,7 +251,7 @@ void set_avg_acqu_mode(void)
         acqu_avg_mode_data[10] = value;
 
         window_ptr->append_log("Send Avg Acquisition Mode Command");
-        send_usb_data(acqu_avg_mode_data, sizeof(acqu_avg_mode_data));
+        scope_send_message(acqu_avg_mode_data, sizeof(acqu_avg_mode_data));
     }
     else
     {
@@ -345,7 +347,7 @@ void set_edge_or_alt_trigger(void)
         edge_trigger_data[51] = (char) (trig_vars.trig_voltage & 0x000000FF);
 
         window_ptr->append_log("Send Trigger Opts Command");
-        send_usb_data(edge_trigger_data, sizeof(edge_trigger_data));
+        scope_send_message(edge_trigger_data, sizeof(edge_trigger_data));
     }
     else
     {
@@ -398,7 +400,7 @@ void set_video_trigger(void)
         {
             video_trigger_data[21] = trig_vars.sync;
             window_ptr->append_log("Send Video Trigger Command");
-            send_usb_data(video_trigger_data, sizeof(video_trigger_data));
+            scope_send_message(video_trigger_data, sizeof(video_trigger_data));
         }
         /*Line Number Mode. More options to set before send */
         else
@@ -429,7 +431,7 @@ void set_video_trigger(void)
             video_trig_line_no_data[25] = (char) (trig_vars.line & 0x000000FF);
 
             window_ptr->append_log("Send Video LineNo Command");
-            send_usb_data(video_trig_line_no_data, sizeof(video_trig_line_no_data));
+            scope_send_message(video_trig_line_no_data, sizeof(video_trig_line_no_data));
         }
     }
     else
@@ -442,18 +444,18 @@ void set_video_trigger(void)
 void send_autoset_command(void)
 {
     window_ptr->append_log("Send Autoset Command");
-    send_usb_data(autoset_data, sizeof(autoset_data));
+    scope_send_message(autoset_data, sizeof(autoset_data));
 }
 
 
 void send_self_cal_command(void)
 {
     window_ptr->append_log("Send Self Cal Command");
-    send_usb_data(self_cal_data, sizeof(self_cal_data));
+    scope_send_message(self_cal_data, sizeof(self_cal_data));
 }
 
 void send_factory_reset_command(void)
 {
     window_ptr->append_log("Send Factory Reset Command");
-    send_usb_data(factory_reset_data, sizeof(factory_reset_data));
+    scope_send_message(factory_reset_data, sizeof(factory_reset_data));
 }

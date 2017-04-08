@@ -3,6 +3,7 @@
 
 #include "usb_interface.h"
 #include "owoncontrol.h"
+#include "consetting.h"
 #include "main.h"
 
 #define USB_LOCK_VENDOR 0x5345			  // Dev : (5345) Owon Technologies
@@ -152,7 +153,7 @@ int connect_usb(void)
         return 1;
     }
 
-    window_ptr->append_log("Claimed Interface");
+    window_ptr->append_log("Claimed USB Interface");
 
     return(0);
 
@@ -190,7 +191,7 @@ int disconnect_usb(void)
     return(0);
 }
 
-void send_usb_data(char* data, int length)
+int send_usb_data(char* data, int length)
 {
     int local_ret;
     int local_written;
@@ -198,12 +199,20 @@ void send_usb_data(char* data, int length)
     if(dev_handle != 0)
     {
         local_ret = libusb_bulk_transfer(dev_handle, BULK_WRITE_ENDPOINT, (unsigned char*)data, length, &local_written, 0);
-        if( local_ret != 0 ) {window_ptr->append_log ("Write Failed");}
+
+        if( local_ret != 0 )
+        {
+            window_ptr->append_log ("Write Failed");
+            return (1);
+        }
     }
     else
     {
         window_ptr->append_log ("Failed to send command, Is the USB connetion active?");
+        return(1);
     }
+
+    return(0);
 }
 
 int get_usb_data(char* data, int length, int * transferred)
@@ -223,7 +232,7 @@ int get_usb_data(char* data, int length, int * transferred)
     return local_ret;
 }
 
-int get_bmp(void)
+int get_bmp_usb(void)
 {
     int allocated = 0;
     int transferred = 0;

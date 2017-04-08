@@ -2,11 +2,14 @@
 #include "ui_owoncontrol.h"
 #include <libusb-1.0/libusb.h>
 #include "usb_interface.h"
+#include "lan_interface.h"
 #include "owon_commands.h"
 #include <QGraphicsScene>
 #include <QFileDialog>
+#include "consetting.h"
 #include "main.h"
 #include <QImage>
+#include "connection.h"
 
 owoncontrol::owoncontrol(QWidget *parent) :
     QMainWindow(parent),
@@ -63,6 +66,7 @@ void owoncontrol::init_vars()
     trig_vars.modulation = (video_modu_e) ui->trigger_video_mod_combo->currentIndex();
     trig_vars.sync = (video_sync_e) ui->trigger_video_sync_combo->currentIndex();
     trig_vars.line = ui->trigger_video_line_spin->value();
+
 }
 
 void owoncontrol::append_log(const QString &text)
@@ -74,11 +78,11 @@ void owoncontrol::on_connectButton_clicked()
 {
     int status;
 
-    status = connect_usb();
+    status = scope_connect();
 
     if(status != 0)
     {
-        ui->textEdit->append("Connect USB call reported a fail condition.");
+        ui->textEdit->append("Connect reported a fail condition.");
     }
     else
     {
@@ -107,7 +111,8 @@ void owoncontrol::on_connectButton_clicked()
 
         owoncontrol::on_capture_btn_clicked();
 
-
+        ui->actionConnection_Settings->setEnabled(false);
+        cest_frm_ptr->close();
     }
 }
 
@@ -115,7 +120,7 @@ void owoncontrol::on_disconnectButton_clicked()
 {
     int status;
 
-    status = disconnect_usb();
+    status = scope_disconnect();
 
     if(status == 0)
     {
@@ -131,6 +136,8 @@ void owoncontrol::on_disconnectButton_clicked()
         ui->actionConnect->setEnabled(true);
         ui->disconnectButton->setEnabled(false);
         ui->actionDisconnect->setEnabled(false);
+
+        ui->actionConnection_Settings->setEnabled(true);
     }
 }
 
@@ -143,7 +150,7 @@ void owoncontrol::on_actionClose_triggered()
 {
     int status;
 
-    status = disconnect_usb();
+    status = scope_disconnect();
 
     if(status == 0)
     {
@@ -424,7 +431,7 @@ void owoncontrol::on_capture_btn_clicked()
     QGraphicsScene *scene = new QGraphicsScene (this);
     QImage temp_a, temp_b, image;
 
-    if( 0 == get_bmp() )
+    if( 0 == scope_get_bmp() )
     {
         ui->textEdit->append("BMP read success");
 
@@ -457,4 +464,10 @@ void owoncontrol::on_forceupdate_btn_clicked()
     set_edge_or_alt_trigger();
     set_tracepos(CHANNEL_1);
     set_tracepos(CHANNEL_2);
+}
+
+
+void owoncontrol::on_actionConnection_Settings_triggered()
+{
+    cest_frm_ptr->show();
 }
